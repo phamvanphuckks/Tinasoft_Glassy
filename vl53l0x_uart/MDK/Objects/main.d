@@ -25,5 +25,9 @@
 .\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\main.o: ..\LIB\user\delay.h
+.\objects\main.o: ..\LIB\user\timer.h
+.\objects\main.o: ..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_tim.h
 .\objects\main.o: ..\LIB\user\uart.h
 .\objects\main.o: ..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_usart.h
+.\objects\main.o: ..\LIB\user\adc.h
+.\objects\main.o: ..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_adc.h

@@ -41,7 +41,7 @@ void UART1_config(void);
 /*!
  * @brief    function interrup service UART
  */
-void USART1_IRQHandler();
+void USART1_IRQHandler(void);
 #ifdef __cplusplus
 }
 #endif

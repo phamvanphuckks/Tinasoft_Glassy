@@ -431,6 +431,16 @@
               <FileType>1</FileType>
               <FilePath>..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_i2c.c</FilePath>
             </File>
+            <File>
+              <FileName>stm32f0xx_adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f0xx_tim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_tim.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
