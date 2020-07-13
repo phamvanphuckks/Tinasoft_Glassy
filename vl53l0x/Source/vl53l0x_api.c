@@ -1246,21 +1246,21 @@ VL53L0X_Error VL53L0X_GetInterMeasurementPeriodMilliSeconds(
 
   if (Status == VL53L0X_ERROR_NONE) {
 		
-		// BUGG
+
     Status = VL53L0X_RdDWord(Dev, VL53L0X_REG_SYSTEM_INTERMEASUREMENT_PERIOD, &IMPeriodMilliSeconds);
   }
 
-//  if (Status == VL53L0X_ERROR_NONE) {
-//    if (osc_calibrate_val != 0) {
-//      *pInterMeasurementPeriodMilliSeconds =
-//          IMPeriodMilliSeconds / osc_calibrate_val;
-//    }
-//    VL53L0X_SETPARAMETERFIELD(Dev, InterMeasurementPeriodMilliSeconds,
-//                              *pInterMeasurementPeriodMilliSeconds);
-//  }
+  if (Status == VL53L0X_ERROR_NONE) {
+    if (osc_calibrate_val != 0) {
+      *pInterMeasurementPeriodMilliSeconds =
+          IMPeriodMilliSeconds / osc_calibrate_val;
+    }
+    VL53L0X_SETPARAMETERFIELD(Dev, InterMeasurementPeriodMilliSeconds,
+                              *pInterMeasurementPeriodMilliSeconds);
+  }
 
-//  LOG_FUNCTION_END(Status);
-//  return Status;
+  LOG_FUNCTION_END(Status);
+  return Status;
 }
 
 VL53L0X_Error

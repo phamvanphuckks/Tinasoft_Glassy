@@ -31,7 +31,7 @@ I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x5625B160)
 I (..\LIB\Libraries\CMSIS\Device\ST\STM32F0xx\Include\system_stm32f0xx.h)(0x54808D0E)
 I (..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_conf.h)(0x5F05AFB9)
 I (..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_rcc.h)(0x54808D11)
-F (..\Source\main.c)(0x5F07FA1C)(--c99 -c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I..\LIB\user -I..\LIB\Libraries\CMSIS\Device\ST\STM32F0xx\Include -I..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc-I E:\Projects\KinhChongLoa\vl53l0x\MDK\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="517" -D_RTE_ -DSTM32F030x6 -DUSE_STDPERIPH_DRIVER -DSTM32F030X6-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (..\Source\main.c)(0x5F0C1F8F)(--c99 -c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I..\LIB\user -I..\LIB\Libraries\CMSIS\Device\ST\STM32F0xx\Include -I..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc-I E:\Projects\KinhChongLoa\vl53l0x\MDK\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="517" -D_RTE_ -DSTM32F030x6 -DUSE_STDPERIPH_DRIVER -DSTM32F030X6-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (..\LIB\user\Adafruit_VL53L0X.h)(0x5F074DBC)
 I (..\LIB\user\vl53l0x_api.h)(0x5F07D929)
 I (..\LIB\user\vl53l0x_api_strings.h)(0x5F0725C9)
@@ -58,6 +58,8 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DB3986)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x55DB3988)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x55DB3986)
 I (..\LIB\user\delay.h)(0x5F049753)
+I (..\LIB\user\uart.h)(0x5F0C1FDF)
+I (..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_usart.h)(0x54808D11)
 F (..\Source\i2c.c)(0x5F07E49B)(--c99 -c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I..\LIB\user -I..\LIB\Libraries\CMSIS\Device\ST\STM32F0xx\Include -I..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc-I E:\Projects\KinhChongLoa\vl53l0x\MDK\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="517" -D_RTE_ -DSTM32F030x6 -DUSE_STDPERIPH_DRIVER -DSTM32F030X6-o .\objects\i2c.o --omf_browse .\objects\i2c.crf --depend .\objects\i2c.d)
 I (..\LIB\user\i2c.h)(0x5F072E95)
 I (..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_gpio.h)(0x54808D11)
@@ -82,7 +84,7 @@ I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x5625B160)
 I (..\LIB\Libraries\CMSIS\Device\ST\STM32F0xx\Include\system_stm32f0xx.h)(0x54808D0E)
 I (..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_conf.h)(0x5F05AFB9)
 I (..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_rcc.h)(0x54808D11)
-F (..\Source\Adafruit_VL53L0X.c)(0x5F07F9E0)(--c99 -c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I..\LIB\user -I..\LIB\Libraries\CMSIS\Device\ST\STM32F0xx\Include -I..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc-I E:\Projects\KinhChongLoa\vl53l0x\MDK\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="517" -D_RTE_ -DSTM32F030x6 -DUSE_STDPERIPH_DRIVER -DSTM32F030X6-o .\objects\adafruit_vl53l0x.o --omf_browse .\objects\adafruit_vl53l0x.crf --depend .\objects\adafruit_vl53l0x.d)
+F (..\Source\Adafruit_VL53L0X.c)(0x5F07FE84)(--c99 -c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I..\LIB\user -I..\LIB\Libraries\CMSIS\Device\ST\STM32F0xx\Include -I..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc-I E:\Projects\KinhChongLoa\vl53l0x\MDK\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="517" -D_RTE_ -DSTM32F030x6 -DUSE_STDPERIPH_DRIVER -DSTM32F030X6-o .\objects\adafruit_vl53l0x.o --omf_browse .\objects\adafruit_vl53l0x.crf --depend .\objects\adafruit_vl53l0x.d)
 I (..\LIB\user\Adafruit_VL53L0X.h)(0x5F074DBC)
 I (..\LIB\user\vl53l0x_api.h)(0x5F07D929)
 I (..\LIB\user\vl53l0x_api_strings.h)(0x5F0725C9)
@@ -109,6 +111,19 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55DB3986)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x55DB3988)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x55DB3986)
 I (..\LIB\user\delay.h)(0x5F049753)
+F (..\Source\UART.c)(0x5F0BA981)(--c99 -c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I..\LIB\user -I..\LIB\Libraries\CMSIS\Device\ST\STM32F0xx\Include -I..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc-I E:\Projects\KinhChongLoa\vl53l0x\MDK\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="517" -D_RTE_ -DSTM32F030x6 -DUSE_STDPERIPH_DRIVER -DSTM32F030X6-o .\objects\uart.o --omf_browse .\objects\uart.crf --depend .\objects\uart.d)
+I (..\LIB\user\UART.h)(0x5F0C1FDF)
+I (..\LIB\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h)(0x54808D0E)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm0.h)(0x5625C51C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DB3990)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h)(0x5625B160)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h)(0x5625B160)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x5625B160)
+I (..\LIB\Libraries\CMSIS\Device\ST\STM32F0xx\Include\system_stm32f0xx.h)(0x54808D0E)
+I (..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_conf.h)(0x5F05AFB9)
+I (..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_usart.h)(0x54808D11)
+I (..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_gpio.h)(0x54808D11)
+I (..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_rcc.h)(0x54808D11)
 F (..\Source\vl53l0x_api_strings.c)(0x5F074CF9)(--c99 -c --cpu Cortex-M0 -g -O0 --apcs=interwork --split_sections -I..\LIB\user -I..\LIB\Libraries\CMSIS\Device\ST\STM32F0xx\Include -I..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc-I E:\Projects\KinhChongLoa\vl53l0x\MDK\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\2.1.0\Drivers\CMSIS\Device\ST\STM32F0xx\Include-D__UVISION_VERSION="517" -D_RTE_ -DSTM32F030x6 -DUSE_STDPERIPH_DRIVER -DSTM32F030X6-o .\objects\vl53l0x_api_strings.o --omf_browse .\objects\vl53l0x_api_strings.crf --depend .\objects\vl53l0x_api_strings.d)
 I (..\LIB\user\vl53l0x_api_strings.h)(0x5F0725C9)
 I (..\LIB\user\vl53l0x_def.h)(0x5F0725C0)

@@ -1,0 +1,23 @@
+--cpu Cortex-M0
+".\objects\stm32f0xx_gpio.o"
+".\objects\stm32f0xx_rcc.o"
+".\objects\stm32f0xx_i2c.o"
+".\objects\stm32f0xx_usart.o"
+".\objects\main.o"
+".\objects\i2c.o"
+".\objects\delay.o"
+".\objects\adafruit_vl53l0x.o"
+".\objects\uart.o"
+".\objects\vl53l0x_api_strings.o"
+".\objects\vl53l0x_api_ranging.o"
+".\objects\vl53l0x_api_core.o"
+".\objects\vl53l0x_api_calibration.o"
+".\objects\vl53l0x_api.o"
+".\objects\vl53l0x_platform.o"
+".\objects\vl53l0x_i2c_comms.o"
+".\objects\startup_stm32f030x6.o"
+".\objects\system_stm32f0xx.o"
+--strict --scatter ".\Objects\VL53L0X.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\VL53L0X.map" -o .\Objects\VL53L0X.axf

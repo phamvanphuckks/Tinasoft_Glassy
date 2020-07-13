@@ -27,10 +27,23 @@ Project File Date:  07/10/2020
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 1 (build 61)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
+compiling UART.c...
+..\LIB\user\UART.h(44): warning:  #1295-D: Deprecated declaration USART1_IRQHandler - give arg types
+  void USART1_IRQHandler();
+..\Source\UART.c: 1 warning, 0 errors
 compiling main.c...
+..\LIB\user\uart.h(44): warning:  #1295-D: Deprecated declaration USART1_IRQHandler - give arg types
+  void USART1_IRQHandler();
+..\Source\main.c: 1 warning, 0 errors
 linking...
-Program Size: Code=10970 RO-data=234 RW-data=712 ZI-data=2112  
-".\Objects\VL53L0X.axf" - 0 Error(s), 0 Warning(s).
+.\Objects\VL53L0X.axf: Error: L6218E: Undefined symbol USART_Cmd (referred from uart.o).
+.\Objects\VL53L0X.axf: Error: L6218E: Undefined symbol USART_ITConfig (referred from uart.o).
+.\Objects\VL53L0X.axf: Error: L6218E: Undefined symbol USART_Init (referred from uart.o).
+.\Objects\VL53L0X.axf: Error: L6218E: Undefined symbol USART_ReceiveData (referred from uart.o).
+.\Objects\VL53L0X.axf: Error: L6218E: Undefined symbol _rx_buffer (referred from uart.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 5 error messages.
+".\Objects\VL53L0X.axf" - 5 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -56,10 +69,11 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:4.3.0
 
    * Component: Keil.Standalone::Device:Startup:1.0.0
-      Source file:   Drivers\CMSIS\Device\ST\STM32F0xx\Source\Templates\arm\startup_stm32f030x6.s
-      Source file:   Drivers\CMSIS\Device\ST\STM32F0xx\Source\Templates\system_stm32f0xx.c
-      Include file:  Drivers\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h
       Source file:   MDK\Device\Source\ARM\STM32F0xx_OPT.s
+      Include file:  Drivers\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h
+      Source file:   Drivers\CMSIS\Device\ST\STM32F0xx\Source\Templates\system_stm32f0xx.c
+      Source file:   Drivers\CMSIS\Device\ST\STM32F0xx\Source\Templates\arm\startup_stm32f030x6.s
+Target not created.
 Build Time Elapsed:  00:00:02
 </pre>
 </body>

@@ -191,6 +191,7 @@ typedef uint8_t VL53L0X_PowerModes;
 
 /** @brief Defines all parameters for the device
  */
+ 
 typedef struct {
   VL53L0X_DeviceModes DeviceMode;
   /*!< Defines type of measurement to be done for the next measure */
