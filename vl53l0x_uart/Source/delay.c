@@ -28,7 +28,7 @@ void SysTick_Init()
                   SysTick_CTRL_TICKINT_Msk   |
                   SysTick_CTRL_ENABLE_Msk;                    // Enable SysTick IRQ and SysTick Timer
 }
-uint32_t volatile SysTickCounter = 1;
+static uint32_t volatile SysTickCounter = 1;
 
 void SysTick_Handler()
 {
@@ -62,7 +62,7 @@ uint32_t SysTick24()
 {
   return ~(SysTick->VAL);
 }
-
+// = millies() in arduino
 uint64_t SysTick_Millis()
 {
   return SysTick64() / (SYSCLK_MHZ *1000);
@@ -86,4 +86,11 @@ void delay_ms(unsigned long ms)
     delay_us(1000);
   }
 }
+
+uint64_t millis(void)
+{
+  return SysTick64() / (SYSCLK_MHZ *1000);
+}
+
+
 

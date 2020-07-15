@@ -26,6 +26,7 @@
 #include "stm32f0xx_usart.h"
 #include "stm32f0xx_gpio.h"
 #include "stm32f0xx_rcc.h"
+#include "stdio.h"
 
 #define SERIAL_RX_BUFFER_SIZE 256
 

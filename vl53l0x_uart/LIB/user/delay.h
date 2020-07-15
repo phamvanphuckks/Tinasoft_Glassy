@@ -18,7 +18,7 @@ uint64_t SysTick_Millis(void);
 uint64_t SysTick_Micros(void);
 void delay_us(unsigned long us);
 void delay_ms(unsigned long ms);
-
+uint64_t millis(void);
 
 #ifdef __cplusplus
 }

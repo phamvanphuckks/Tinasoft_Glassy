@@ -13,8 +13,7 @@
   ******************************************************************************
   */
 
-#include "UART.h"
-#include "stdio.h"
+#include "uart.h"
 
 struct __FILE {
     int dummy;
@@ -30,7 +29,7 @@ int fputc(int ch, FILE *f){
 	return ch;
 }
 
-uint8_t rx_count = 0;
+static uint8_t rx_count = 0;
 
 void UART1_config(void)
 {

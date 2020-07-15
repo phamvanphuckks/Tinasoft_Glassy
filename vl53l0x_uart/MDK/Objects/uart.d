@@ -1,5 +1,5 @@
-.\objects\uart.o: ..\Source\UART.c
-.\objects\uart.o: ..\LIB\user\UART.h
+.\objects\uart.o: ..\Source\uart.c
+.\objects\uart.o: ..\LIB\user\uart.h
 .\objects\uart.o: ..\LIB\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h
 .\objects\uart.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm0.h
 .\objects\uart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h

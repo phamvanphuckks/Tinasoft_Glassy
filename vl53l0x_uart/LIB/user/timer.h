@@ -1,30 +1,43 @@
 /**
-  ******************************************************************************
+  ********************************************************************************************
   * @file    timer.h
   * @author  PhamVanPhuckks
   * @date    2020
-  * @brief   This file contains all the functions prototypes for the miscellaneous
+  * @brief   This file contains all the functions prototypes for the timer, Buzzz
   *          firmware library functions (add-on to CMSIS functions).
-  ******************************************************************************
+  *********************************************************************************************
   * @attention
-  * This file is used to describe in detail
-  * the functions that serve asynchronous serial communication uart
+  * This file is used to declare function
+  * prototypes for the timer peripheral as so as the Buzzz
   * All information related to copyright contact phamvanphuckks@gmail.com
-  ******************************************************************************
+  *********************************************************************************************
   */
 #ifndef __TIMER_H__
 #define __TIMER_H__
+
+#ifdef __cplusplus
+ extern "C" {
+#endif
 
 #include "stm32f0xx_tim.h"
 #include "stm32f0xx_rcc.h"
 #include "stm32f0xx_gpio.h"
 
-
 /*!
- * @brief    function configuration PWM and called in main
+ * @brief    function configuration PWM for the Buzz and called in main
  */
 void PWM_Configuration(void);
-void Set_PWM(uint8_t pwm );
+
+/*!
+ * @brief    function relation with Buzz
+ */ 
+void Update_status_VolumeBuzz(uint16_t VolumeBuzz_Levelx);
+uint16_t Read_status_VolumeBuzz(void);
+uint8_t  Read_status_Buzz(void);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
 /**

@@ -1,18 +1,17 @@
 /**
-  ******************************************************************************
+  ********************************************************************************************
   * @file    i2c.h
   * @author  PhamVanPhuckks
   * @date    2020
-  * @brief   This file contains all the functions prototypes for the miscellaneous
+  * @brief   This file contains all the functions prototypes for Inter-Integrated Circuit(i2c)
   *          firmware library functions (add-on to CMSIS functions).
-  ******************************************************************************
+  *********************************************************************************************
   * @attention
-  * This file is used to describe in detail
-  * the functions that serve asynchronous serial communication uart
+  * This file is used to declare function
+  * prototypes for the i2c peripheral
   * All information related to copyright contact phamvanphuckks@gmail.com
-  ******************************************************************************
+  *********************************************************************************************
   */
-
 #ifndef __I2C_H__
 #define __I2C_H__
 
@@ -23,11 +22,6 @@
 #include "stm32f0xx_gpio.h"
 #include "stm32f0xx_i2c.h"
 #include "stm32f0xx_rcc.h"
-
-
-/****************************************
-*					User Defition                 *
-*****************************************/
 
 /*
 	PA4 - Led D2
@@ -54,26 +48,35 @@
 
 /* STANDARD_I2C_MODE*/
 #define I2C_SPEED 		 100000
-#define I2C_DUTYCYCLE  I2C_DutyCycle_2 
+#define I2C_DUTYCYCLE    I2C_DutyCycle_2 
 
 
-/****************************************
-*					User function                 *
-*****************************************/
+/*!
+ * @brief    function configuration I2C, LED and called in main
+ */
 void i2c_configuration(void);
 void GPIO_configuration(void);
 
+
+/*!
+ * @brief    function configuration R/W registers
+ */
 void I2C_Write_Reg(uint8_t Addr, uint8_t Reg, uint8_t Data);
 void I2C_Write_Reg16bit(uint8_t Addr, uint8_t Reg, uint16_t Data);
 void I2C_Write_Reg32bit(uint8_t Addr, uint8_t Reg, uint32_t Data);
-void I2C_Write_MultiReg(uint8_t Addr, uint8_t Reg, uint8_t NumOfRegister,uint8_t *Data);
 
 
 uint8_t  I2C_Read_Reg(uint8_t Addr, uint8_t Reg);
 uint16_t I2C_Read_Reg16bit(uint8_t Addr, uint8_t Reg);
 uint32_t I2C_Read_Reg32bit(uint8_t Addr, uint8_t Reg);
-void I2C_Read_MultiReg(uint8_t Addr,uint8_t Reg, uint8_t NumOfRegister, uint8_t *Data);
 
+
+void I2C_Read_MultiReg(uint8_t Addr,uint8_t Reg, uint8_t NumOfRegister, uint8_t *Data);
+void I2C_Write_MultiReg(uint8_t Addr, uint8_t Reg, uint8_t NumOfRegister,uint8_t const*Data);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
 

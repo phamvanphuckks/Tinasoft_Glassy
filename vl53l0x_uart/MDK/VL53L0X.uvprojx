@@ -51,7 +51,7 @@
           <OutputName>VL53L0X</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
-          <CreateHexFile>0</CreateHexFile>
+          <CreateHexFile>1</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
           <ListingPath>.\Listings\</ListingPath>
@@ -314,7 +314,7 @@
               <OCR_RVCT4>
                 <Type>1</Type>
                 <StartAddress>0x8000000</StartAddress>
-                <Size>0x5000</Size>
+                <Size>0x4000</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
                 <Type>1</Type>
@@ -414,7 +414,7 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>libraries</GroupName>
+          <GroupName>Libraries cmsis</GroupName>
           <Files>
             <File>
               <FileName>stm32f0xx_gpio.c</FileName>
@@ -436,10 +436,20 @@
               <FileType>1</FileType>
               <FilePath>..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_usart.c</FilePath>
             </File>
+            <File>
+              <FileName>stm32f0xx_adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f0xx_tim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_tim.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>user</GroupName>
+          <GroupName>Source</GroupName>
           <Files>
             <File>
               <FileName>main.c</FileName>
@@ -449,7 +459,7 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>source</GroupName>
+          <GroupName>User</GroupName>
           <Files>
             <File>
               <FileName>i2c.c</FileName>
@@ -462,59 +472,24 @@
               <FilePath>..\Source\delay.c</FilePath>
             </File>
             <File>
-              <FileName>Adafruit_VL53L0X.c</FileName>
+              <FileName>timer.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Source\Adafruit_VL53L0X.c</FilePath>
+              <FilePath>..\Source\timer.c</FilePath>
             </File>
             <File>
-              <FileName>UART.c</FileName>
+              <FileName>adc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Source\UART.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>core</GroupName>
-          <Files>
-            <File>
-              <FileName>vl53l0x_api_strings.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Source\vl53l0x_api_strings.c</FilePath>
+              <FilePath>..\Source\adc.c</FilePath>
             </File>
             <File>
-              <FileName>vl53l0x_api_ranging.c</FileName>
+              <FileName>vl53l0x.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Source\vl53l0x_api_ranging.c</FilePath>
+              <FilePath>..\Source\vl53l0x.c</FilePath>
             </File>
             <File>
-              <FileName>vl53l0x_api_core.c</FileName>
+              <FileName>uart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Source\vl53l0x_api_core.c</FilePath>
-            </File>
-            <File>
-              <FileName>vl53l0x_api_calibration.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Source\vl53l0x_api_calibration.c</FilePath>
-            </File>
-            <File>
-              <FileName>vl53l0x_api.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Source\vl53l0x_api.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>platform</GroupName>
-          <Files>
-            <File>
-              <FileName>vl53l0x_platform.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Source\vl53l0x_platform.c</FilePath>
-            </File>
-            <File>
-              <FileName>vl53l0x_i2c_comms.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Source\vl53l0x_i2c_comms.c</FilePath>
+              <FilePath>..\Source\uart.c</FilePath>
             </File>
           </Files>
         </Group>

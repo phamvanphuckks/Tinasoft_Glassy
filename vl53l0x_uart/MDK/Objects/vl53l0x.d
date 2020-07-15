@@ -1,8 +1,7 @@
-.\objects\vl53l0x.o: ..\Source\VL53L0X.c
-.\objects\vl53l0x.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\vl53l0x.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\vl53l0x.o: ..\LIB\user\VL53L0X.h
+.\objects\vl53l0x.o: ..\Source\vl53l0x.c
+.\objects\vl53l0x.o: ..\LIB\user\vl53L0x.h
 .\objects\vl53l0x.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\vl53l0x.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\vl53l0x.o: ..\LIB\user\i2c.h
 .\objects\vl53l0x.o: ..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_gpio.h
 .\objects\vl53l0x.o: ..\LIB\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h
@@ -14,3 +13,4 @@
 .\objects\vl53l0x.o: ..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_conf.h
 .\objects\vl53l0x.o: ..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_i2c.h
 .\objects\vl53l0x.o: ..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_rcc.h
+.\objects\vl53l0x.o: ..\LIB\user\delay.h
