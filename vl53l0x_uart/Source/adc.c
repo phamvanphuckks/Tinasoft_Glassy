@@ -76,15 +76,15 @@ void ADC_Configuration(void)
 /**
   * @brief  Get the battery percentage value 
   * @param  none
-  * @return specifies level pin 0-4096
+  * @return specifies level pin 0-100
   * @retval None
   */
-uint16_t Read_Status_Pin(void)
+uint8_t Read_Status_Pin(void)
 {
 	uint16_t  Pin_Levelx;
 	Pin_Levelx = ADC_GetConversionValue(ADC1);
     
-	return Pin_Levelx;
+	return (uint8_t) ((Pin_Levelx*100)/4096);
 }
 
 /**

@@ -31,7 +31,7 @@ void ADC_Configuration(void);
 /*!
  * @brief    function relation with Pin of Circuit
  */     
-uint16_t Read_Status_Pin(void);
+uint8_t Read_Status_Pin(void);
 
 #ifdef __cplusplus
 }

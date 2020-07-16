@@ -13,7 +13,7 @@
   ******************************************************************************
   */
 
-#include  "timer.h"
+#include "timer.h"
 
 
 /**
@@ -22,7 +22,6 @@
   * @return None        
   * @retval None
   */
-
 void PWM_Configuration()
 {
     TIM_OCInitTypeDef  				TIM_OCInitStructure;
@@ -43,7 +42,7 @@ void PWM_Configuration()
     GPIO_PinAFConfig(GPIOA, GPIO_PinSource6, GPIO_AF_1);
 
     /*Config TIM_timeBase*/
-    TIM_TimeBase_InitStructure.TIM_Period 					= 2961;
+    TIM_TimeBase_InitStructure.TIM_Period 					= 2962;
     TIM_TimeBase_InitStructure.TIM_Prescaler 				= 0x00;
     TIM_TimeBase_InitStructure.TIM_ClockDivision 			= TIM_CKD_DIV1;
     TIM_TimeBase_InitStructure.TIM_CounterMode				=	TIM_CounterMode_Up;
@@ -70,27 +69,36 @@ void PWM_Configuration()
 
 /**
   * @brief  update the new level of VolumeBuzz
-  * @param  VolumeBuzz_Levelx : the levels of VolumeBuzz
+  * @param  VolumeBuzz_Levelx : the levels of VolumeBuzz 0->100
   * @return None       
   * @retval None
   */
-void Update_status_VolumeBuzz(uint16_t VolumeBuzz_Levelx)
+void Update_status_VolumeBuzz(uint8_t VolumeBuzz_Levelx)
 {
-
-	TIM3->CCR1 = (uint16_t) VolumeBuzz_Levelx;
+	uint16_t TimerPeriod, TIM3_PWM_Value;
+    
+    TimerPeriod = TIM3->ARR;
+    TIM3_PWM_Value = round_f(((float)(VolumeBuzz_Levelx*TimerPeriod)/100));    
+	TIM3->CCR1 = (uint16_t) TIM3_PWM_Value;
 }
 
 /**
   * @brief  get the Volume status of Buzz!
   * @param  None
-  * @return specifies level volume  
+  * @return specifies level volume  : 0 ->100 
   * @retval None
   */
-uint16_t Read_status_VolumeBuzz(void)
+// sau nay ham nay se doc trong flash - vi se luu volume trong flash
+uint8_t Read_status_VolumeBuzz(void)
 {
-	uint16_t 	VolumeBuzz_Levelx;
-	VolumeBuzz_Levelx = TIM3->CCR1;
+	uint16_t 	TimerPeriod, TIM3_PWM_Value;
+    uint8_t	    VolumeBuzz_Levelx;
 
+    TimerPeriod = TIM3->ARR;
+	TIM3_PWM_Value = TIM3->CCR1;    
+
+    VolumeBuzz_Levelx = (uint8_t) round_f(((float)TIM3_PWM_Value * 100)/ TimerPeriod);
+    
 	return VolumeBuzz_Levelx;
 }
 
@@ -104,4 +112,21 @@ uint16_t Read_status_VolumeBuzz(void)
 uint8_t  Read_status_Buzz(void)
 {
     return ((Read_status_VolumeBuzz() == 0) ? 0 : 1);
+}
+
+/**
+  * @brief  round the number type float
+  * @param  the number type float
+  * @return Returns the number type  uint16_t
+  * @retval None
+  */
+uint16_t round_f(float x)
+{
+    uint16_t right_decimal_point;
+    float left_decimal_point;
+    
+    right_decimal_point = (uint16_t) x;
+    left_decimal_point = x - right_decimal_point;
+    
+    return ((left_decimal_point >= 0.5) ? (right_decimal_point+1) : right_decimal_point);
 }

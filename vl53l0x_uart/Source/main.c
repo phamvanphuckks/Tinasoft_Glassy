@@ -3,6 +3,7 @@
 #include "timer.h"
 #include "uart.h"
 #include "adc.h"
+#include "string.h"
 
 char _rx_buffer[SERIAL_RX_BUFFER_SIZE];
 
@@ -37,6 +38,12 @@ void add_value_tx_message(uint16_t distance_t, uint16_t status_Pin_t, uint16_t v
     ptx_message->status_Buzz = status_Buzz_t;
 }
 
+
+void Transfer_Package(char *p_ID, TX_Message_t *tx_package)
+{
+    printf("%s,%d,%d,%d,%d\n", p_ID, tx_package->distance, tx_package->status_Pin, tx_package->status_volumeBuzz, tx_package->status_Buzz);
+}
+
 int main(void)
 {
 	SystemClock_Config();
@@ -49,11 +56,13 @@ int main(void)
 	UART1_config();
 	ADC_Configuration();
 	PWM_Configuration();
-
+        
 	while(1)
 	{
         add_value_tx_message(readRangeContinuousMillimeters(), Read_Status_Pin(), Read_status_VolumeBuzz(), Read_status_Buzz());
-        printf("%d,%d,%d,%d\n", tx_message.distance, tx_message.status_Pin, tx_message.status_volumeBuzz, tx_message.status_Buzz); 
+//        printf("%d,%d,%d,%d\n", tx_message.distance, tx_message.status_Pin, tx_message.status_volumeBuzz, tx_message.status_Buzz); 
+        
+        Transfer_Package("#1", ptx_message);
 
         GPIOA->ODR ^= (1 << 4);
         delay_ms(1000);

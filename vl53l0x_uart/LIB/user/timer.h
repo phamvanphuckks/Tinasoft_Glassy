@@ -31,10 +31,11 @@ void PWM_Configuration(void);
 /*!
  * @brief    function relation with Buzz
  */ 
-void Update_status_VolumeBuzz(uint16_t VolumeBuzz_Levelx);
-uint16_t Read_status_VolumeBuzz(void);
+void Update_status_VolumeBuzz(uint8_t VolumeBuzz_Levelx);
+uint8_t Read_status_VolumeBuzz(void);
 uint8_t  Read_status_Buzz(void);
-
+uint16_t round_f(float x);
+    
 #ifdef __cplusplus
 }
 #endif

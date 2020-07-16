@@ -343,11 +343,11 @@ ARM Macro Assembler    Page 6
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M0 --apcs=interw
 ork --depend=.\objects\startup_stm32f030x6.d -o.\objects\startup_stm32f030x6.o 
--I"E:\Projects\KinhChongLoa\vl53l0x_uart - Copy\MDK\RTE" -IC:\Keil_v5\ARM\PACK\
-ARM\CMSIS\4.5.0\CMSIS\Include -IC:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\2.1.0\Dr
-ivers\CMSIS\Device\ST\STM32F0xx\Include --predefine="__UVISION_VERSION SETA 517
-" --predefine="_RTE_ SETA 1" --predefine="STM32F030x6 SETA 1" --list=.\listings
-\startup_stm32f030x6.lst RTE\Device\STM32F030F4Px\startup_stm32f030x6.s
+-IE:\Projects\KinhChongLoa\vl53l0x_uart\MDK\RTE -IC:\Keil_v5\ARM\PACK\ARM\CMSIS
+\4.5.0\CMSIS\Include -IC:\Keil_v5\ARM\PACK\Keil\STM32F0xx_DFP\2.1.0\Drivers\CMS
+IS\Device\ST\STM32F0xx\Include --predefine="__UVISION_VERSION SETA 517" --prede
+fine="_RTE_ SETA 1" --predefine="STM32F030x6 SETA 1" --list=.\listings\startup_
+stm32f030x6.lst RTE\Device\STM32F030F4Px\startup_stm32f030x6.s
 
 
 
