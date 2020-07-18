@@ -11,3 +11,4 @@
 .\objects\timer.o: ..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_conf.h
 .\objects\timer.o: ..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_rcc.h
 .\objects\timer.o: ..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_gpio.h
+.\objects\timer.o: ..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_misc.h

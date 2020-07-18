@@ -14,6 +14,7 @@
   */
 
 #include "uart.h"
+#include "stm32f0xx_tim.h"
 
 struct __FILE {
     int dummy;
@@ -29,7 +30,7 @@ int fputc(int ch, FILE *f){
 	return ch;
 }
 
-static uint8_t rx_count = 0;
+static volatile uint8_t rx_count = 0;
 
 void UART1_config(void)
 {
@@ -94,9 +95,20 @@ void USART1_IRQHandler()
 //		while ((USART1->ISR & 0x80) == 0);
 //		USART1->TDR = chartoreceive;
 	
+    // disable TIM16 : send messgae with the cycle 1s
+//    if( TIM16->DIER  & (uint16_t) (TIM_IT_Update))
+//        TIM_ITConfig(TIM16, TIM_IT_Update, DISABLE);
+ 
+    if((_rx_buffer[0]=='S')  && _rx_buffer[rx_count-1] == '\n')
+    {
+        flag_rx_connected = 1;
+    }
+    
     if(_rx_buffer[rx_count-1] == '\n')
     {
         rx_count = 0;
     }
+    
+
 }
 /******************* (C) COPYRIGHT 2020 nguyendonbg@gmail.com *****END OF FILE****/

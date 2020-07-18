@@ -12,3 +12,4 @@
 .\objects\uart.o: ..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_gpio.h
 .\objects\uart.o: ..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_rcc.h
 .\objects\uart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\uart.o: ..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_tim.h

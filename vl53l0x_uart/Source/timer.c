@@ -3,18 +3,17 @@
   * @file    timer.c
   * @author  PhamVanPhuckks
   * @date    2020
-  * @brief   This file contains all the functions definition for timer and Buzzz
+  * @brief   This file contains all the functions definition for timer, Buzzz and send package
   *          firmware library (add-on to CMSIS functions).
   ******************************************************************************
   * @attention
   * This file is used to describe in detail
-  * the functions that serve for the timer peripheral as so as the Buzzz
+  * the functions that serve for the timer peripheral, the Buzzz as so as send package
   * All information related to copyright contact phamvanphuckks@gmail.com
   ******************************************************************************
   */
 
 #include "timer.h"
-
 
 /**
   * @brief  Initial TIM3 PWM 
@@ -45,7 +44,7 @@ void PWM_Configuration()
     TIM_TimeBase_InitStructure.TIM_Period 					= 2962;
     TIM_TimeBase_InitStructure.TIM_Prescaler 				= 0x00;
     TIM_TimeBase_InitStructure.TIM_ClockDivision 			= TIM_CKD_DIV1;
-    TIM_TimeBase_InitStructure.TIM_CounterMode				=	TIM_CounterMode_Up;
+    TIM_TimeBase_InitStructure.TIM_CounterMode				= TIM_CounterMode_Up;
     TIM_TimeBase_InitStructure.TIM_RepetitionCounter	    = 0x00;
     TIM_TimeBaseInit(TIM3, &TIM_TimeBase_InitStructure);
 
@@ -68,12 +67,48 @@ void PWM_Configuration()
 
 
 /**
+  * @brief  Initial TIM15, The cycle is 1s 
+  * @param  None
+  * @return None        
+  * @retval None
+  */
+
+void TIM16_Configuration(void)
+{
+
+    TIM_TimeBaseInitTypeDef		    TIM_TimeBase_InitStructure;
+    NVIC_InitTypeDef				NVIC_InitStructure;
+
+
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM16, ENABLE);
+
+    /*Config TIM_timeBase*/
+    TIM_TimeBase_InitStructure.TIM_Period 					= 7999;
+    TIM_TimeBase_InitStructure.TIM_Prescaler 				= 0x3E7;
+    TIM_TimeBase_InitStructure.TIM_ClockDivision 			= TIM_CKD_DIV1;
+    TIM_TimeBase_InitStructure.TIM_CounterMode				= TIM_CounterMode_Up;
+    TIM_TimeBase_InitStructure.TIM_RepetitionCounter	    = 0x00;
+    TIM_TimeBaseInit(TIM16, &TIM_TimeBase_InitStructure);
+
+    NVIC_InitStructure.NVIC_IRQChannel = TIM16_IRQn;
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+    NVIC_InitStructure.NVIC_IRQChannelPriority = 0x01;
+    NVIC_Init(&NVIC_InitStructure);
+   
+    TIM_ITConfig(TIM16, TIM_IT_Update, DISABLE);
+    
+    /* TIM16 counter enable */
+    TIM_Cmd(TIM16, DISABLE);   
+}
+
+
+/**
   * @brief  update the new level of VolumeBuzz
   * @param  VolumeBuzz_Levelx : the levels of VolumeBuzz 0->100
   * @return None       
   * @retval None
   */
-void Update_status_VolumeBuzz(uint8_t VolumeBuzz_Levelx)
+void Update_status_volume_speaker(uint8_t VolumeBuzz_Levelx)
 {
 	uint16_t TimerPeriod, TIM3_PWM_Value;
     
@@ -89,7 +124,7 @@ void Update_status_VolumeBuzz(uint8_t VolumeBuzz_Levelx)
   * @retval None
   */
 // sau nay ham nay se doc trong flash - vi se luu volume trong flash
-uint8_t Read_status_VolumeBuzz(void)
+uint8_t Read_status_volume_speaker(void)
 {
 	uint16_t 	TimerPeriod, TIM3_PWM_Value;
     uint8_t	    VolumeBuzz_Levelx;
@@ -109,9 +144,9 @@ uint8_t Read_status_VolumeBuzz(void)
   * @retval None
   */
 
-uint8_t  Read_status_Buzz(void)
+uint8_t  Read_status_speaker(void)
 {
-    return ((Read_status_VolumeBuzz() == 0) ? 0 : 1);
+    return ((Read_status_volume_speaker() == 0) ? 0 : 1);
 }
 
 /**
@@ -129,4 +164,13 @@ uint16_t round_f(float x)
     left_decimal_point = x - right_decimal_point;
     
     return ((left_decimal_point >= 0.5) ? (right_decimal_point+1) : right_decimal_point);
+}
+
+// ngat se cap nhap co flag_tx_package, main se kiem tra no 
+void TIM16_IRQHandler(void)
+{
+   flag_tx_package = 1; 
+   TIM_ClearFlag(TIM16, TIM_FLAG_Update);
+    
+   GPIOA->ODR ^= (1 << 4);
 }

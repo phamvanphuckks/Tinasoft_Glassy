@@ -5,6 +5,7 @@
 ".\objects\stm32f0xx_usart.o"
 ".\objects\stm32f0xx_adc.o"
 ".\objects\stm32f0xx_tim.o"
+".\objects\stm32f0xx_misc.o"
 ".\objects\main.o"
 ".\objects\i2c.o"
 ".\objects\delay.o"

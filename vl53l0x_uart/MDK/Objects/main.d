@@ -1,4 +1,6 @@
 .\objects\main.o: ..\Source\main.c
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\main.o: ..\LIB\user\vl53l0x.h
 .\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
@@ -14,9 +16,9 @@
 .\objects\main.o: ..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_tim.h
 .\objects\main.o: ..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_rcc.h
 .\objects\main.o: ..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_gpio.h
+.\objects\main.o: ..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_misc.h
 .\objects\main.o: ..\LIB\user\uart.h
 .\objects\main.o: ..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_usart.h
 .\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\main.o: ..\LIB\user\adc.h
 .\objects\main.o: ..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_adc.h
-.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

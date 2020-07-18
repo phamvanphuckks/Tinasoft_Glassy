@@ -32,6 +32,8 @@
 
 /** This array needs to be declared in main function */
 extern char _rx_buffer[SERIAL_RX_BUFFER_SIZE] ;
+/* recevie data packgae connected*/
+extern volatile uint8_t flag_rx_connected;
 
 /*!
  * @brief    function configuration USART and called in main
