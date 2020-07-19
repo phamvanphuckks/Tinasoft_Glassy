@@ -96,8 +96,8 @@ void USART1_IRQHandler()
 //		USART1->TDR = chartoreceive;
 	
     // disable TIM16 : send messgae with the cycle 1s
-//    if( TIM16->DIER  & (uint16_t) (TIM_IT_Update))
-//        TIM_ITConfig(TIM16, TIM_IT_Update, DISABLE);
+    if( (TIM16->DIER  & (uint16_t) (TIM_IT_Update) ) && (_rx_buffer[rx_count]=='S'))
+        TIM_ITConfig(TIM16, TIM_IT_Update, DISABLE);
  
     if((_rx_buffer[0]=='S')  && _rx_buffer[rx_count-1] == '\n')
     {

@@ -14,6 +14,7 @@
   */
 
 #include "timer.h"
+#include "flash.h"
 
 /**
   * @brief  Initial TIM3 PWM 
@@ -113,7 +114,7 @@ void Update_status_volume_speaker(uint8_t VolumeBuzz_Levelx)
 	uint16_t TimerPeriod, TIM3_PWM_Value;
     
     TimerPeriod = TIM3->ARR;
-    TIM3_PWM_Value = round_f(((float)(VolumeBuzz_Levelx*TimerPeriod)/100));    
+    TIM3_PWM_Value = (uint16_t)(VolumeBuzz_Levelx*TimerPeriod)/100;    
 	TIM3->CCR1 = (uint16_t) TIM3_PWM_Value;
 }
 
@@ -123,18 +124,13 @@ void Update_status_volume_speaker(uint8_t VolumeBuzz_Levelx)
   * @return specifies level volume  : 0 ->100 
   * @retval None
   */
-// sau nay ham nay se doc trong flash - vi se luu volume trong flash
+
 uint8_t Read_status_volume_speaker(void)
 {
-	uint16_t 	TimerPeriod, TIM3_PWM_Value;
-    uint8_t	    VolumeBuzz_Levelx;
 
-    TimerPeriod = TIM3->ARR;
-	TIM3_PWM_Value = TIM3->CCR1;    
-
-    VolumeBuzz_Levelx = (uint8_t) round_f(((float)TIM3_PWM_Value * 100)/ TimerPeriod);
-    
-	return VolumeBuzz_Levelx;
+    uint8_t volume_speaker_Levelx;
+    volume_speaker_Levelx = (uint8_t)Flash_Read_Int(FLASH_SPEAKER_VOLUME);
+	return volume_speaker_Levelx;
 }
 
 /**
@@ -146,7 +142,9 @@ uint8_t Read_status_volume_speaker(void)
 
 uint8_t  Read_status_speaker(void)
 {
-    return ((Read_status_volume_speaker() == 0) ? 0 : 1);
+    uint8_t speaker_status;
+    speaker_status = (uint8_t)Flash_Read_Int(FLASH_SPEAKER_STATUS);
+    return speaker_status;
 }
 
 /**

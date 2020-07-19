@@ -451,6 +451,11 @@
               <FileType>1</FileType>
               <FilePath>..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_misc.c</FilePath>
             </File>
+            <File>
+              <FileName>stm32f0xx_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_flash.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -495,6 +500,11 @@
               <FileName>uart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Source\uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Source\flash.c</FilePath>
             </File>
           </Files>
         </Group>
