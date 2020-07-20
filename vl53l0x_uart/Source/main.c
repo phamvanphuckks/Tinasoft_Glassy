@@ -1,12 +1,11 @@
+#include <string.h>
+#include <stdlib.h>
 #include "vl53l0x.h"
 #include "delay.h"
 #include "timer.h"
 #include "flash.h"
 #include "uart.h"
 #include "adc.h"
-
-#include <string.h>
-#include <stdlib.h>
 
 char _rx_buffer[SERIAL_RX_BUFFER_SIZE];
 volatile uint8_t flag_rx_connected = 0, flag_tx_package = 0;
@@ -21,7 +20,7 @@ typedef struct{
 	/*!< Specifies the status of Buzz ON/OFF*/	    
 	uint8_t  speaker_status;
 	/*!< Specifies the Buzzz volume levels*/	
-	uint16_t speaker_volum;
+	uint16_t speaker_volume;
 } tx_package;
 
 tx_package tx_message_t;
@@ -38,12 +37,12 @@ typedef struct
 rx_package rx_message_t;
 rx_package *rx_message = &rx_message_t;
 
-void add_data_to_tx_message(uint8_t Pin_status_t, uint16_t range_t, uint8_t speaker_status_t, uint8_t speaker_volum_t)
+void add_data_to_tx_message(uint8_t Pin_status_t, uint16_t range_t, uint8_t speaker_status_t, uint8_t speaker_volume_t)
 {
     tx_message->pin_status = Pin_status_t;
     tx_message->range = range_t;
     tx_message->speaker_status = speaker_status_t;
-    tx_message->speaker_volum = speaker_volum_t;
+    tx_message->speaker_volume = speaker_volume_t;
 }
 
 void add_data_to_rx_message(char *p_range_t, char *p_speaker_status_t, char *p_speaker_volume_t)
@@ -57,29 +56,31 @@ void parse_package(char *str)
 {
     char *p_rx_buffer;
     
-    char *p_id, *p_range_min, *p_speaker_volume, *p_speaker_status;
+    char *p_id_message, *p_range_min, *p_speaker_volume, *p_speaker_status;
     char *p_connected;
     
     p_rx_buffer = str;
-    p_id = p_rx_buffer;
-    p_rx_buffer = strchr(p_id, ',');
+    p_id_message = p_rx_buffer;
+    p_rx_buffer = strchr(p_id_message, ',');
 
     if (p_rx_buffer != NULL)
     {
         *p_rx_buffer = 0; 
-        strcpy(id_message, p_id);
+        strcpy(id_message, p_id_message);
     }
     p_connected = p_rx_buffer + 1; 
 
     // S, connected
-    if(p_connected[0] == 'c'){
+    if(p_connected[0] == 'c')
+    {
         if (p_rx_buffer != NULL)
         {
             *p_rx_buffer = 0; 
             strcpy(connected, p_connected);
         }
     }
-    else{ // S, a,b,c,d
+    else
+    { // S, a,b,c,d
         p_range_min = p_rx_buffer + 1; 
         p_rx_buffer = strchr(p_range_min, ',');
 
@@ -114,7 +115,7 @@ void parse_package(char *str)
 
 void Transfer_Package(char ID, tx_package *tx_message)
 {
-    printf("%c,%d,%d,%d,%d,\n", ID, tx_message->pin_status, tx_message->range, tx_message->speaker_status, tx_message->speaker_volum);
+    printf("%c,%d,%d,%d,%d,\n", ID, tx_message->pin_status, tx_message->range, tx_message->speaker_status, tx_message->speaker_volume);
 }
 
 void save_rx_message_to_flash()
@@ -136,8 +137,10 @@ void Process_request_from_app(){
     TIM_ITConfig(TIM16, TIM_IT_Update, DISABLE);
     USART_ITConfig(USART1, USART_IT_RXNE, DISABLE);
     
-    if(!strcmp(id_message, "S")){
-        if(strstr(connected, "connected") != NULL){
+    if(!strcmp(id_message, "S"))
+    {
+        if(strstr(connected, "connected") != NULL)
+        {
             add_data_to_tx_message(Read_Status_Pin(), readRangeContinuousMillimeters(), Read_status_speaker(), Read_status_volume_speaker()); 
             Transfer_Package('S', tx_message);
             
@@ -160,7 +163,7 @@ void Process_request_from_app(){
             TIM_ITConfig(TIM16, TIM_IT_Update, ENABLE);  
        }
     }
-    USART_ITConfig(USART1,USART_IT_RXNE, ENABLE);   
+    USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);   
 }
 
 int main(void)
@@ -184,16 +187,22 @@ int main(void)
             Process_request_from_app();
             flag_rx_connected = 0;
         }
-
         if(flag_tx_package)
         {
             add_data_to_tx_message(Read_Status_Pin(), readRangeContinuousMillimeters(), Read_status_speaker(), Read_status_volume_speaker()); 
             Transfer_Package('S', tx_message);
+                        
             // phat ra canh bao neu khoang cach < nguong
             if(tx_message->range < Flash_Read_Int(FLASH_RANGE_THRESHOLD))
             {
-                if((uint8_t)Flash_Read_Int(FLASH_SPEAKER_STATUS))  Update_status_volume_speaker((uint8_t)Flash_Read_Int(FLASH_SPEAKER_VOLUME)); 
-                else Update_status_volume_speaker(0); 
+                if((uint8_t)Flash_Read_Int(FLASH_SPEAKER_STATUS))  
+                {
+                    Update_status_volume_speaker((uint8_t)Flash_Read_Int(FLASH_SPEAKER_VOLUME)); 
+                }
+                else 
+                {
+                    Update_status_volume_speaker(0); 
+                }
             }
             else
             {

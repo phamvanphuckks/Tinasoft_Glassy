@@ -91,3 +91,17 @@ void Flash_ProgramPage(char* dataIn, uint32_t addr1)
     delay_ms(100);
     Flash_Lock();
 }
+
+uint8_t Read_status_volume_speaker(void)
+{
+    uint8_t volume_speaker_Levelx;
+    volume_speaker_Levelx = (uint8_t)Flash_Read_Int(FLASH_SPEAKER_VOLUME);
+	return volume_speaker_Levelx;
+}
+
+uint8_t  Read_status_speaker(void)
+{
+    uint8_t speaker_status;
+    speaker_status = (uint8_t)Flash_Read_Int(FLASH_SPEAKER_STATUS);
+    return speaker_status;
+}

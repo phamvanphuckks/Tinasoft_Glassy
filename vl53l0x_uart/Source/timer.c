@@ -76,7 +76,6 @@ void PWM_Configuration()
 
 void TIM16_Configuration(void)
 {
-
     TIM_TimeBaseInitTypeDef		    TIM_TimeBase_InitStructure;
     NVIC_InitTypeDef				NVIC_InitStructure;
 
@@ -116,35 +115,6 @@ void Update_status_volume_speaker(uint8_t VolumeBuzz_Levelx)
     TimerPeriod = TIM3->ARR;
     TIM3_PWM_Value = (uint16_t)(VolumeBuzz_Levelx*TimerPeriod)/100;    
 	TIM3->CCR1 = (uint16_t) TIM3_PWM_Value;
-}
-
-/**
-  * @brief  get the Volume status of Buzz!
-  * @param  None
-  * @return specifies level volume  : 0 ->100 
-  * @retval None
-  */
-
-uint8_t Read_status_volume_speaker(void)
-{
-
-    uint8_t volume_speaker_Levelx;
-    volume_speaker_Levelx = (uint8_t)Flash_Read_Int(FLASH_SPEAKER_VOLUME);
-	return volume_speaker_Levelx;
-}
-
-/**
-  * @brief  get the  status of Buzz!
-  * @param  None
-  * @return the status 0-OFF, >0 - ON  
-  * @retval None
-  */
-
-uint8_t  Read_status_speaker(void)
-{
-    uint8_t speaker_status;
-    speaker_status = (uint8_t)Flash_Read_Int(FLASH_SPEAKER_STATUS);
-    return speaker_status;
 }
 
 /**

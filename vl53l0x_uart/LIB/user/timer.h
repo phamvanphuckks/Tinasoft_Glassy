@@ -37,8 +37,6 @@ void TIM16_Configuration(void);
  * @brief    function relation with Buzz
  */ 
 void Update_status_volume_speaker(uint8_t VolumeBuzz_Levelx);
-uint8_t Read_status_volume_speaker(void);
-uint8_t  Read_status_speaker(void);
 uint16_t round_f(float x);
     
 #ifdef __cplusplus

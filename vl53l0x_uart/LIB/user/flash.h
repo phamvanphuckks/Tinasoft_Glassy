@@ -70,6 +70,20 @@ void Flash_ReadChar(char* dataOut, uint32_t addr1, uint32_t size_read);
  * @param  [IN]char* dataIn     data data to be written in the page memory
  */
 void Flash_ProgramPage(char* dataIn, uint32_t addr1);
+/*!
+  * @brief  get the Volume status of Buzz!
+  * @param  None
+  * @return specifies level volume  : 0 ->100 
+  * @retval None
+  */
+uint8_t Read_status_volume_speaker(void);
+/*!
+  * @brief  get the  status of Buzz!
+  * @param  None
+  * @return the status 0-OFF, >0 - ON  
+  * @retval None
+ */
+uint8_t  Read_status_speaker(void);
 
 #ifdef __cplusplus
 }
