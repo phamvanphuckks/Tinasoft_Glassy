@@ -7,3 +7,4 @@
 .\objects\system_stm32f0xx.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h
 .\objects\system_stm32f0xx.o: ..\LIB\Libraries\CMSIS\Device\ST\STM32F0xx\Include\system_stm32f0xx.h
 .\objects\system_stm32f0xx.o: ..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_conf.h
+.\objects\system_stm32f0xx.o: ..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_rcc.h

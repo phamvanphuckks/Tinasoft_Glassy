@@ -8,7 +8,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f0xx.h"
 
-void SystemClock_Config(void);
 void SysTick_Init(void);
 void SysTick_Handler(void);
 uint64_t SysTick64(void);

@@ -89,8 +89,7 @@ void parse_package(char *str)
             *p_rx_buffer = 0;
             strcpy(range_min, p_range_min);
         }
-        //printf("range_min %s\n", range_min);        
-        
+
         p_speaker_status = p_rx_buffer + 1; 
         p_rx_buffer = strchr(p_speaker_status, ',');
 
@@ -99,8 +98,7 @@ void parse_package(char *str)
             *p_rx_buffer = 0;
             strcpy(speaker_status, p_speaker_status);
         }
-        //printf("speaker_status %s\n", speaker_status);
-        
+
         p_speaker_volume = p_rx_buffer + 1;
         p_rx_buffer = strchr(p_speaker_volume, ',');
 
@@ -109,7 +107,6 @@ void parse_package(char *str)
             *p_rx_buffer = 0;
             strcpy(speaker_volume, p_speaker_volume);
         }
-        //printf("speaker_volume %s\n", speaker_volume);
     }
 }
 
@@ -141,7 +138,7 @@ void Process_request_from_app(){
     {
         if(strstr(connected, "connected") != NULL)
         {
-            add_data_to_tx_message(Read_Status_Pin(), readRangeContinuousMillimeters(), Read_status_speaker(), Read_status_volume_speaker()); 
+            add_data_to_tx_message(Read_Status_Pin(), readRangeSingleMillimeters(), Read_status_speaker(), Read_status_volume_speaker()); 
             Transfer_Package('S', tx_message);
             
             // Enable interrupt timer, uart
@@ -155,7 +152,7 @@ void Process_request_from_app(){
        {    
             // save in flash - Disable interrupt timer, uart
             save_rx_message_to_flash();
-            add_data_to_tx_message(Read_Status_Pin(), readRangeContinuousMillimeters(), Read_status_speaker(), Read_status_volume_speaker()); 
+            add_data_to_tx_message(Read_Status_Pin(), readRangeSingleMillimeters(), Read_status_speaker(), Read_status_volume_speaker()); 
             Transfer_Package('S', tx_message);   
             printf("Setup done\n");
            
@@ -165,10 +162,29 @@ void Process_request_from_app(){
     }
     USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);   
 }
+void PrintSystemInfo()
+{
 
+  printf("\n");
+
+  printf("RCC_CR    = %08X\n", RCC->CR);
+  printf("RCC_CFGR  = %08X\n", RCC->CFGR);
+  printf("FLASH_ACR = %08X\n", FLASH->ACR);
+  printf("\n");
+
+  RCC_ClocksTypeDef RCC_ClocksStatus;
+  RCC_GetClocksFreq(&RCC_ClocksStatus);
+  printf("RCC_SYSCLK_Frequency = %ld\n", RCC_ClocksStatus.SYSCLK_Frequency);
+  printf("RCC_HCLK_Frequency   = %ld\n", RCC_ClocksStatus.HCLK_Frequency);
+
+  printf("RCC_ADCCLK_Frequency = %ld\n", RCC_ClocksStatus.ADCCLK_Frequency);
+  printf("\n");
+}
+
+uint16_t range;
 int main(void)
 {
-	SystemClock_Config();
+    SystemInit();
 	SystemCoreClockUpdate();
 	SysTick_Init();
 	
@@ -185,15 +201,17 @@ int main(void)
         if(flag_rx_connected)
         {
             Process_request_from_app();
+            
+            /*clear flag_rx_connected*/    
             flag_rx_connected = 0;
         }
         if(flag_tx_package)
         {
-            add_data_to_tx_message(Read_Status_Pin(), readRangeContinuousMillimeters(), Read_status_speaker(), Read_status_volume_speaker()); 
+            add_data_to_tx_message(Read_Status_Pin(), readRangeSingleMillimeters(), Read_status_speaker(), Read_status_volume_speaker()); 
             Transfer_Package('S', tx_message);
                         
             // phat ra canh bao neu khoang cach < nguong
-            if(tx_message->range < Flash_Read_Int(FLASH_RANGE_THRESHOLD))
+            if(tx_message->range < (uint16_t)Flash_Read_Int(FLASH_RANGE_THRESHOLD))
             {
                 if((uint8_t)Flash_Read_Int(FLASH_SPEAKER_STATUS))  
                 {
@@ -210,6 +228,7 @@ int main(void)
             }
             /*clear flag_tx_package*/          
             flag_tx_package = 0;
-        }    
+        }   
+
 	}
 }

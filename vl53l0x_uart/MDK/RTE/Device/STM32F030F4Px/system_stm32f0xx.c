@@ -64,6 +64,7 @@
   */
 
 #include "stm32f0xx.h"
+#include "stm32f0xx_rcc.h"
 
 /**
   * @}
@@ -151,6 +152,17 @@ void SystemInit(void)
                          User can setups the default system clock (System clock source, PLL Multiplier
                          and Divider factors, AHB/APBx prescalers and Flash settings).
    */
+    RCC_DeInit();
+    RCC_HSICmd(ENABLE);
+
+    /*HCLK = SYSCLK*/
+    RCC_HCLKConfig(RCC_SYSCLK_Div1);
+    /*APB = HCLK / 1*/
+    RCC_PCLKConfig(RCC_SYSCLK_Div1);
+    /*use HSI as system source*/
+    RCC_SYSCLKConfig(RCC_SYSCLKSource_HSI);
+    /*wait still HSI is used as system clock source*/
+    while(RCC_GetSYSCLKSource() != 0x00){};
 }
 
 /**
@@ -189,6 +201,7 @@ void SystemInit(void)
   * @param  None
   * @retval None
   */
+  
 void SystemCoreClockUpdate (void)
 {
   uint32_t tmp = 0, pllmull = 0, pllsource = 0, predivfactor = 0;

@@ -4,20 +4,6 @@
 
 #define SYSCLK_MHZ 8
 
-/*note: you must call fucntion SystemCoreClockUpdate() after this fucntion */
-void SystemClock_Config(void){			
-		RCC_DeInit();
-		RCC_HSICmd(ENABLE);
-
-		/*HCLK = SYSCLK*/
-		RCC_HCLKConfig(RCC_SYSCLK_Div1);
-		/*APB = HCLK / 1*/
-		RCC_PCLKConfig(RCC_SYSCLK_Div1);
-		/*use HSI as system source*/
-		RCC_SYSCLKConfig(RCC_SYSCLKSource_HSI);
-		/*wait still HSI is used as system clock source*/
-		while(RCC_GetSYSCLKSource() != 0x00){};
-}
 
 /*note: you must call fucntion , if you want to use delay */
 void SysTick_Init()
