@@ -1,0 +1,16 @@
+.\objects\adc.o: ..\Source\adc.c
+.\objects\adc.o: ..\LIB\user\adc.h
+.\objects\adc.o: ..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_adc.h
+.\objects\adc.o: ..\LIB\Libraries\CMSIS\Device\ST\STM32F0xx\Include\stm32f0xx.h
+.\objects\adc.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm0.h
+.\objects\adc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\adc.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h
+.\objects\adc.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h
+.\objects\adc.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h
+.\objects\adc.o: ..\LIB\Libraries\CMSIS\Device\ST\STM32F0xx\Include\system_stm32f0xx.h
+.\objects\adc.o: ..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_conf.h
+.\objects\adc.o: ..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_gpio.h
+.\objects\adc.o: ..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_rcc.h
+.\objects\adc.o: ..\LIB\user\delay.h
+.\objects\adc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\adc.o: ..\LIB\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_dma.h

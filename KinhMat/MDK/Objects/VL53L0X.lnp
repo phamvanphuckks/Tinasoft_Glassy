@@ -1,0 +1,24 @@
+--cpu Cortex-M0
+".\objects\stm32f0xx_gpio.o"
+".\objects\stm32f0xx_rcc.o"
+".\objects\stm32f0xx_i2c.o"
+".\objects\stm32f0xx_usart.o"
+".\objects\stm32f0xx_adc.o"
+".\objects\stm32f0xx_tim.o"
+".\objects\stm32f0xx_misc.o"
+".\objects\stm32f0xx_flash.o"
+".\objects\stm32f0xx_dma.o"
+".\objects\main.o"
+".\objects\i2c.o"
+".\objects\delay.o"
+".\objects\timer.o"
+".\objects\adc.o"
+".\objects\vl53l0x.o"
+".\objects\uart.o"
+".\objects\flash.o"
+".\objects\startup_stm32f030x6.o"
+".\objects\system_stm32f0xx.o"
+--strict --scatter ".\Objects\VL53L0X.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\VL53L0X.map" -o .\Objects\VL53L0X.axf
